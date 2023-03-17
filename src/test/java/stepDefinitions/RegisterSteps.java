@@ -7,6 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pageObjects.PageObjectManager;
 import utils.TestContextSetup;
 
 public class RegisterSteps {
@@ -20,6 +21,7 @@ public class RegisterSteps {
    @Given("User clicks on Get Started")
 	public void user_clicks_on_get_started() {
 	System.setProperty("webdriver.chrome.driver","C:\\Users\\ravis\\Downloads\\chromedriver_win32\\chromedriver.exe");
+	WebDriver driver;
 	driver = new ChromeDriver();
 	driver .get("https://dsportalapp.herokuapp.com");
 	driver.findElement(By.className("btn")).click();
