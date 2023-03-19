@@ -1,26 +1,36 @@
 
-
+@DataStructures
 Feature: validating Data Structure page
+Background: User is logged into the DS Algo portal
+  When  User signed into DS_Portal 
+    Then User stays in the homepage
+  
+  @ds1
+Scenario: User is able to navigate to the Data Structure Page
+    When User selects the Datastructure by clicking Get Started
+    Then User is redirected to the Data Structure Page
+    
+ @ds2
+  Scenario: User is able to navigate to the Time Complexity Page
+    Given User is in the DataStructure page after login
+    When User clicks on the Time complexity
+    Then User is redirected to the Time complexity page
 
-  Scenario Outline: signin into dsalgo portal and enter into datastructures page
-    Given user clicks get started
-    When user clicks signin butto
-    Then user should see login screen
-    When user enter username as"code_warriors" and password as "ssdet@88"
-    And click login button
-    Then user should see "you are logged in" msg
-    When user clicks Get Started of DAta Structures
-    Then user should see Data Structures page screen
-    When user clicks time complexity
-    Then user should see overview of time complexity
-    And user clicks try here
-    Then user should see try editor page
-    And Enter following code <code>
-    And clicks Run
-    Then User should see <status>
+@ds3
+  Scenario: User is able to navigate to the Try Here Editor page in Time complexity page
+    Given User is in the Time complexity after login
+    When User clicks on the Try Here box in  Time complexity
+    Then User is redirected to the Try editor page of  Time complexity
+      
+   @ds4
+  Scenario: User is able to write valid code in the  Time complexity Try editor box 
+   When User enters following code in  Time complexity editor
+      | print("Hello this is time complexity of datastructures") |
+    And User clicks on Run in Time complexity
+    Then User is able to see a valid output Hello this is time complexity of datastructures  
     
-    
-    Examples:  
-      | code  										| status		|			
-      | print("time complexity")	| success		|
-      | undefined code 						| Fail    	|
+     @ds5
+  Scenario: User is able to write invalid code in the  Time complexity Try editor box 
+    When User enters following code in  Time complexity editor as "hello is invalid code for ds"
+    And User clicks on Run in Time complexity
+    Then User is able to see a Syntax Error 
