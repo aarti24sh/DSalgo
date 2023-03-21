@@ -20,7 +20,12 @@ public class RegisterSteps {
 	
    @Given("User clicks on Get Started")
 	public void user_clicks_on_get_started() {
-	System.setProperty("webdriver.chrome.driver","C:\\Users\\ravis\\Downloads\\chromedriver_win32\\chromedriver.exe");
+//	System.setProperty("webdriver.chrome.driver","C:\\Users\\ravis\\Downloads\\chromedriver_win32\\chromedriver.exe");
+context.pageObjectManager.getRegisterPage().clicksgetStarted();
+
+
+	
+	
 	WebDriver driver;
 	driver = new ChromeDriver();
 	driver .get("https://dsportalapp.herokuapp.com");
@@ -31,7 +36,7 @@ public class RegisterSteps {
 
 	@When("User should see Register button in home page and clicks Register")
 	public void user_should_see_register_button_in_home_page_and_clicks_register() {
-		context.pageObjectManager.getRegisterPage().homeRegisterbtnFuntion();
+		context.pageObjectManager.getRegisterPage().homeRegisterbtnFunction();
 	    
 
 	}
@@ -39,13 +44,13 @@ public class RegisterSteps {
 	@Then("User should navigate to Register Page")
 	public void user_should_navigate_to_register_page() {
 	    // Write code here that turns the phrase above into concrete actions
-		context.pageObjectManager.getRegisterPage().registerRegisterbtnFuntion();
+		context.pageObjectManager.getRegisterPage().registerRegisterbtnFunction();
 	    
 	}
 
 	@When("User enters {string} {string} {string}")
 	public void user_enters(String username, String password, String confirm_password) {
-		context.pageObjectManager.getRegisterPage().userCredentials(username,password,confirm_password);
+		context.pageObjectManager.getRegisterPage().userCredential(username,password,confirm_password);
 		
 		
 		
